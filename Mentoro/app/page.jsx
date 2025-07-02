@@ -6,6 +6,9 @@ import { howItWorks } from "@/data/howItWorks";
 import { testimonial } from "@/data/testimonial";
 import Image from "next/image";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
+import { Button } from "@/components/ui/button";
+import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -142,6 +145,24 @@ export default function Home() {
                 )
               })}
             </Accordion>
+          </div>
+        </div>
+      </section>
+
+      <section className="w-full ">
+        <div className="mx-auto py-24 gradient rounded-lg">
+          <div className="flex flex-col items-center justify-center space-y-4 text-center max-w-3xl mx-auto">
+            <h1 className="text-2xl font-bold tracking-tighter text-primary-foreground sm:text-3xl md:text-4xl">Accelerate Your Career with Mentoro</h1>
+            <p className="mx-auto max-w-[600px] text-primary-foreground/80 ">Join thousands of professionals using AI-powered tools to unlock new opportunities and let Mentoro guide your path.</p>
+            <Link href="/dashboard" passHref>
+              <Button
+                size="lg"
+                variant="secondary"
+                className="h-10 mt-5 animate-bounce"
+              >
+                Get Started Now <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
