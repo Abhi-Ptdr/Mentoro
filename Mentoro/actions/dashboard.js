@@ -34,7 +34,15 @@ export const generateAIInsights = async (industry) => {
         const text = response.text();
         const cleanedText = text.replace(/```(?:json)?\n?/g, "").trim();
 
-        return JSON.parse(cleanedText);
+        const parsed = JSON.parse(cleanedText);
+
+        const normalizeEnums = (data) => ({
+          ...data,
+          demandLevel: data.demandLevel?.toUpperCase(),
+          marketOutlook: data.marketOutlook?.toUpperCase(),
+        });
+
+        return normalizeEnums(parsed);
 };
 
 export async function getIndustryInsights() {

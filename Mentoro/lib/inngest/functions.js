@@ -47,7 +47,15 @@ export const generateIndustryInsights = inngest.createFunction(
       const text = res.response.candidates[0].content.parts[0].text || "";
       const cleanedText = text.replace(/```(?:json)?\n?/g, "").trim();
 
-      const insights = JSON.parse(cleanedText);
+        const parsed = JSON.parse(cleanedText);
+
+        const normalizeEnums = (data) => ({
+        ...data,
+        demandLevel: data.demandLevel?.toUpperCase(),
+        marketOutlook: data.marketOutlook?.toUpperCase(),
+        });
+
+        const insights = normalizeEnums(parsed);
 
       await step.run(`Update ${industry} insights`, async () => {
         await db.industryInsight.update({
