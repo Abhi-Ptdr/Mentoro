@@ -30,7 +30,7 @@ const Header = async () => {
                             </Button>
                         </Link>
 
-                        <DropdownMenu>
+                        <DropdownMenu modal={false}>
                             <DropdownMenuTrigger asChild>
                                 <Button>
                                     <StarsIcon className='h-4 w-4' />
@@ -39,19 +39,19 @@ const Header = async () => {
                                 </Button>
                             </DropdownMenuTrigger>
                             <DropdownMenuContent>
-                                <DropdownMenuItem>
+                                <DropdownMenuItem asChild>
                                     <Link href={"/resume"} className='flex items-center gap-2'>
                                         <FileText className='h-4 w-4' />
-                                        <span className='hidden md:block'>Build Resume</span>
+                                        <span>Build Resume</span>
                                     </Link>
                                 </DropdownMenuItem>
-                                <DropdownMenuItem>
+                                <DropdownMenuItem asChild>
                                     <Link href={"/ai-cover-letter"} className='flex items-center gap-2'>
                                         <PenBox className='h-4 w-4' />
                                         Cover Letter
                                     </Link>
                                 </DropdownMenuItem>
-                                <DropdownMenuItem>
+                                <DropdownMenuItem asChild>
                                     <Link href={"/interview"} className='flex items-center gap-2'>
                                         <GraduationCap className='h-4 w-4' />
                                         Interview Prep
